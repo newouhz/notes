@@ -1,0 +1,34 @@
+安装目录：/usr/local
+安装版本：tengine-2.2.0
+默认端口号：80
+
+安装过程：
+1、下载依赖
+yum  -y install pcre pcre-devel openssl openssl-devel gcc-c++
+
+2、下载安装包
+wget http://tengine.taobao.org/download/tengine-2.2.0.tar.gz
+
+3、解压
+tar zxvf tengine-2.2.0.tar.gz -C /usr/local/
+
+4、编译安装
+cd tengine-2.2.0
+./configure 
+make
+make installl
+
+
+简单运维：
+启动：
+/usr/local/nginx/sbin/nginx -s start    启动
+/usr/local/nginx/sbin/nginx -s stop     关闭
+/usr/local/nginx/sbin/nginx -s reload   重启
+
+
+常见报错：
+1、nginx:[emerg] still could not bind()
+原因：80端口被占用
+解决：
+  方式一：杀掉占用80端口的进程，释放80端口
+  方式二：修改配置文件使用其他未被占用的端口
